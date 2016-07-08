@@ -17,7 +17,7 @@ chrome.extension.onMessage.addListener(
 						divs[i].style.backgroundColor = "#f00";
 					}
 				}
-				break;
+				
 
 				var thing = document.querySelectorAll("div#resultStats");
 				thing.forEach(function(tt)
@@ -25,6 +25,7 @@ chrome.extension.onMessage.addListener(
 						tt.textContent = "jai vinayaka!!!";
 					}
 				);
+				break;
 		}
 	}
 );

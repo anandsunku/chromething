@@ -13,12 +13,14 @@
 <script>
 document.getElementById("myBtn").addEventListener("click", function(){
     document.getElementById("demo").innerHTML = "Hello World";
+    //now the text of the google result is changed on click of the button
+    chrome.extension.sendMessage({type: "color-divs"});
 });
 </script>
 
 </body>
 </html>
 
-
+<script type="text/javascript" src="popup.js"/>
 
 <div style="background:url(/images/srpr/logo11w.png) no-repeat;background-size:269px 95px;height:95px;width:269px" title="Google" align="left" id="hplogo" onload="window.lol&amp;&amp;lol()"><div nowrap="" style="color:#777;font-size:16px;font-weight:bold;position:relative;left:218px;top:70px">India</div></div>
