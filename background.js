@@ -1,3 +1,15 @@
+chrome.tabs.onUpdated.addListener(
+
+	function(tabId, changeInfo, tab) 
+	{
+		if (changeInfo.status == 'complete') {
+			//tabs.sendMessage is to reach content.js from background.js 
+			//chrome.tabs.sendMessage(tab.id, {type: "colors-div", color: "#F00"});
+		}
+	}
+);
+
+
 
 
 //listening for an event / one-time requests
@@ -14,16 +26,7 @@ chrome.extension.onMessage.addListener(
 	}
 );
 
-chrome.tabs.onUpdated.addListener(
 
-	function(tabId, changeInfo, tab) 
-	{
-		if (changeInfo.status == 'complete') {
-			//tabs.sendMessage is to reach content.js from background.js 
-			//chrome.tabs.sendMessage(tab.id, {type: "colors-div", color: "#F00"});
-		}
-	}
-);
 
 //todo: listening for an event / long-lived connections
 // coming from devtools
@@ -33,7 +36,9 @@ var colorDivs = function() {
 
 		chrome.tabs.sendMessage(tab.id, {type: "colors-div", color: "#F00"});
 		//setting a badge
-		chrome.browserAction.setBadgeText({text: "baaa!"});	
+		chrome.browserAction.setBadgeText({text: "baaa!"});
+
+		chrome.browserAction.getPopup()
 	});
 }
 

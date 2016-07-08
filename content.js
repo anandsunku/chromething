@@ -25,10 +25,36 @@ chrome.extension.onMessage.addListener(
 						tt.textContent = "jai vinayaka!!!";
 					}
 				);
+
+				//todo: i need to pass a message to background script.
+
 				break;
 		}
 	}
 );
+
+
+chrome.runtime.onMessage.addListener(function (msg,sender, response) {
+	if((msg.from === 'popup') && (msg.subject ==="getStats")) {
+
+		var thing = document.querySelectorAll("div#resultStats");
+		var fromGoogle;
+
+		thing.forEach(function(tt)
+			{
+				fromGoogle = tt.textContent;
+			}
+		);
+
+		console.log("i got the message");
+
+		var resStats = {
+			googleres: fromGoogle
+		};
+
+		response(resStats);	
+	}
+});
 
 
 
