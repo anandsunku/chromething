@@ -19,6 +19,7 @@ chrome.tabs.onUpdated.addListener(
 	function(tabId, changeInfo, tab) 
 	{
 		if (changeInfo.status == 'complete') {
+			//tabs.sendMessage is to reach content.js from background.js 
 			//chrome.tabs.sendMessage(tab.id, {type: "colors-div", color: "#F00"});
 		}
 	}
