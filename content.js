@@ -27,6 +27,11 @@ chrome.extension.onMessage.addListener(
 				);
 
 				//todo: i need to pass a message to background script.
+				var resStats = {
+					googleres: fromGoogle
+				};
+
+				sendResponse(resStats);
 
 				break;
 		}
