@@ -1,9 +1,18 @@
 function setStats(info){
-	document.getElementById("summa").value = info.googleres;
+	info.googleres.forEach(function(content1){
+		document.getElementById("summa").value += content1;
+		document.getElementById("summa").value += "\r\n";
+	});
+
+	document.getElementById("summa").value += "\r\ncounter_party\r\n----------\r\n";
+
+	info.party.forEach(function(content2){
+		document.getElementById("summa").value += content2;
+		document.getElementById("summa").value += "\r\n";
+	});
 }
 
 window.onload = function() {
-
 
 	document.getElementById("button").onclick = function() {
 
