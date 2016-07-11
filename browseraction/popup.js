@@ -10,6 +10,13 @@ function setStats(info){
 		document.getElementById("summa").value += content2;
 		document.getElementById("summa").value += "\r\n";
 	});
+
+	document.getElementById("summa").value += "\r\nflowlogid\r\n----------\r\n";
+
+	info.flowlogid.forEach(function(content2){
+		document.getElementById("summa").value += content2;
+		document.getElementById("summa").value += "\r\n";
+	});
 }
 
 window.onload = function() {

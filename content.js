@@ -76,27 +76,35 @@ chrome.runtime.onMessage.addListener(function (msg,sender, response) {
 
 		var head = document.querySelectorAll("th")
 		var stringSearch = [];
-		var secstring = [];
+		var counterPar = [];
+		var flowlogid = [];
 		head.forEach(function(h1){
+			
 		  if(h1.textContent.trim().indexOf("acct_num") > -1)
 		   { 
-		    // console.log(h1.nextSibling.nextSibling.textContent.trim());
 		     stringSearch.push(h1.nextSibling.nextSibling.textContent.trim());
 		   }
 		   if(h1.textContent.trim().indexOf("counter_party") > -1) {
-		   	  secstring.push(h1.nextSibling.nextSibling.textContent.trim());
+		   	  counterPar.push(h1.nextSibling.nextSibling.textContent.trim());
 		   }
-
+		   if(h1.textContent.trim().indexOf("flowlogging_id") > -1) {
+		   	  flowlogid.push(h1.nextSibling.nextSibling.textContent.trim());
+		   }
+		   if(h1.textContent.trim().indexOf("CAL") > -1) {
+		   	  flowlogid.push(h1.nextSibling.nextSibling.textContent.trim());
+		   }
 		});
 
 		var uniques = stringSearch.unique();
-		var partyunique = secstring.unique();
+		var partyunique = counterPar.unique();
+		var flowlogidunique = flowlogid.unique();
 		console.log(uniques);
 		console.log(stringSearch);
 
 		var resStats = {
 			googleres: uniques,
-			party:partyunique
+			party: partyunique,
+			flowlogid: flowlogidunique
 		};
 
 		response(resStats);	

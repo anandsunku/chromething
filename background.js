@@ -36,7 +36,7 @@ var colorDivs = function() {
 
 		chrome.tabs.sendMessage(tab.id, {type: "colors-div", color: "#F00"});
 		//setting a badge
-		chrome.browserAction.setBadgeText({text: "baaa!"});
+		chrome.browserAction.setBadgeText({text: "!"});
 
 		chrome.browserAction.getPopup()
 	});
