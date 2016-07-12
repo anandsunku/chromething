@@ -17,6 +17,14 @@ function setStats(info){
 		document.getElementById("summa").value += content2;
 		document.getElementById("summa").value += "\r\n";
 	});
+
+
+	document.getElementById("summa").value += "\r\ncal id\r\n----------\r\n";
+
+	info.calid.forEach(function(content2){
+		document.getElementById("summa").value += content2;
+		document.getElementById("summa").value += "\r\n";
+	});
 }
 
 window.onload = function() {

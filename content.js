@@ -78,8 +78,9 @@ chrome.runtime.onMessage.addListener(function (msg,sender, response) {
 		var stringSearch = [];
 		var counterPar = [];
 		var flowlogid = [];
+		var cal = [];
 		head.forEach(function(h1){
-			
+
 		  if(h1.textContent.trim().indexOf("acct_num") > -1)
 		   { 
 		     stringSearch.push(h1.nextSibling.nextSibling.textContent.trim());
@@ -91,20 +92,22 @@ chrome.runtime.onMessage.addListener(function (msg,sender, response) {
 		   	  flowlogid.push(h1.nextSibling.nextSibling.textContent.trim());
 		   }
 		   if(h1.textContent.trim().indexOf("CAL") > -1) {
-		   	  flowlogid.push(h1.nextSibling.nextSibling.textContent.trim());
+		   	  cal.push(h1.nextSibling.nextSibling.textContent.trim());
 		   }
 		});
 
 		var uniques = stringSearch.unique();
 		var partyunique = counterPar.unique();
 		var flowlogidunique = flowlogid.unique();
+		var calunique = cal.unique();
 		console.log(uniques);
 		console.log(stringSearch);
 
 		var resStats = {
 			googleres: uniques,
 			party: partyunique,
-			flowlogid: flowlogidunique
+			flowlogid: flowlogidunique,
+			calid: calunique
 		};
 
 		response(resStats);	
