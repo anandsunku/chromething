@@ -79,6 +79,7 @@ chrome.runtime.onMessage.addListener(function (msg,sender, response) {
 		var counterPar = [];
 		var flowlogid = [];
 		var cal = [];
+		var eventnames = [];
 		head.forEach(function(h1){
 
 		  if(h1.textContent.trim().indexOf("acct_num") > -1)
@@ -94,12 +95,16 @@ chrome.runtime.onMessage.addListener(function (msg,sender, response) {
 		   if(h1.textContent.trim().indexOf("CAL") > -1) {
 		   	  cal.push(h1.nextSibling.nextSibling.textContent.trim());
 		   }
+		   if(h1.textContent.trim().indexOf("EventName") > -1) {
+		   	  eventnames.push(h1.nextSibling.nextSibling.textContent.trim());
+		   }		   
 		});
 
 		var uniques = stringSearch.unique();
 		var partyunique = counterPar.unique();
 		var flowlogidunique = flowlogid.unique();
 		var calunique = cal.unique();
+		var eventsunique = eventnames.unique();
 		console.log(uniques);
 		console.log(stringSearch);
 
@@ -107,7 +112,8 @@ chrome.runtime.onMessage.addListener(function (msg,sender, response) {
 			googleres: uniques,
 			party: partyunique,
 			flowlogid: flowlogidunique,
-			calid: calunique
+			calid: calunique,
+			eventstat: eventsunique
 		};
 
 		response(resStats);	

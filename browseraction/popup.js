@@ -25,6 +25,13 @@ function setStats(info){
 		document.getElementById("summa").value += content2;
 		document.getElementById("summa").value += "\r\n";
 	});
+
+	document.getElementById("summa").value += "\r\nevent names\r\n----------\r\n";
+
+	info.eventstat.forEach(function(content2){
+		document.getElementById("summa").value += content2;
+		document.getElementById("summa").value += "\r\n";
+	});	
 }
 
 window.onload = function() {
