@@ -72,7 +72,7 @@ chrome.runtime.onMessage.addListener(function (msg,sender, response) {
 			}
 		);
 
-		console.log("i got the message");
+		console.log("i got the message from who ?");
 
 		var head = document.querySelectorAll("th")
 		var stringSearch = [];
