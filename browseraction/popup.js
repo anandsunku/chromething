@@ -36,6 +36,8 @@ function setStats(info){
 
 window.onload = function() {
 
+	//todo: i should load the saved data here!!!
+
 	document.getElementById("button").onclick = function() {
 
 		chrome.extension.sendMessage({type: "color-divs"});
